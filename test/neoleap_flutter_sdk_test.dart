@@ -12,6 +12,9 @@ class MockNeoleapFlutterSdkPlatform
 
   @override
   Future<num?> getBatteryLevel() => Future.value(21);
+
+  @override
+  Future<Map<String, dynamic>> connectMPOS() => Future.value({});
 }
 
 void main() {
@@ -39,5 +42,13 @@ void main() {
 
     expect(await neoleapFlutterSdkPlugin.getBatteryLevel(), 21);
   });
-  
+
+  test('connectMPOS', () async {
+    NeoleapFlutterSdk neoleapFlutterSdkPlugin = NeoleapFlutterSdk();
+    MockNeoleapFlutterSdkPlatform fakePlatform =
+        MockNeoleapFlutterSdkPlatform();
+    NeoleapFlutterSdkPlatform.instance = fakePlatform;
+
+    expect(await neoleapFlutterSdkPlugin.connectMPOS(), {});
+  });
 }

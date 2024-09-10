@@ -1,0 +1,11 @@
+framework module mPOSSDK {
+  umbrella header "mPOSSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module mPOSSDK.Swift {
+    header "mPOSSDK-Swift.h"
+    requires objc
+}

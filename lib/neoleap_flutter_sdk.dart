@@ -11,5 +11,8 @@ class NeoleapFlutterSdk {
     return NeoleapFlutterSdkPlatform.instance.getBatteryLevel();
   }
 
+  Future<Map<String,dynamic>> connectMPOS() {
+    return NeoleapFlutterSdkPlatform.instance.connectMPOS();
+  }
   
 }

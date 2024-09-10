@@ -34,6 +34,10 @@ class _MyAppState extends State<MyApp> {
         _batteryLevel = value;
       });
     });
+
+    _neoleapFlutterSdkPlugin.connectMPOS().then((value) {
+      print('connectMPOS: $value');
+    });
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.

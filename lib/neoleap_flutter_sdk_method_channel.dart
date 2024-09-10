@@ -22,4 +22,10 @@ class MethodChannelNeoleapFlutterSdk extends NeoleapFlutterSdkPlatform {
         await methodChannel.invokeMethod<num>('getBatteryLevel');
     return batteryLevel;
   }
+
+  @override
+  Future<Map<String,dynamic>> connectMPOS() async {
+    final Map<String, dynamic> result = await methodChannel.invokeMethod('connectMPOS');
+    return result;
+  }
 }

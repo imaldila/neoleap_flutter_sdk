@@ -30,4 +30,8 @@ abstract class NeoleapFlutterSdkPlatform extends PlatformInterface {
   Future<num?> getBatteryLevel() {
     throw UnimplementedError('getBatteryLevel() has not been implemented.');
   }
+
+  Future<Map<String,dynamic>> connectMPOS() {
+    throw UnimplementedError('connectMPOS() has not been implemented.');
+  }
 }

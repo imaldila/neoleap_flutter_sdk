@@ -16,6 +16,11 @@ A new Flutter plugin project.
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
   s.platform = :ios, '11.0'
+  
+#  s.vendored_frameworks = 'ios/Frameworks/mPOSSDK.framework'
+  s.preserve_paths = 'Frameworks/mPOSSDK.framework'
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-framework mPOSSDK' }
+  s.vendored_frameworks = 'Frameworks/mPOSSDK.framework'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }

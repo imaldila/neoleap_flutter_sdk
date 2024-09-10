@@ -1,0 +1,557 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name mPOSSDK
+import CommonCrypto
+import CoreBluetooth
+import CoreData
+import Foundation
+import Swift
+import UIKit
+@_exported import mPOSSDK
+@objc @_inheritsConvenienceInitializers public class RetailerData : ObjectiveC.NSObject {
+  public var retailer: mPOSSDK.Retailer
+  public var acquirerData: mPOSSDK.AcquirerData
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class TransactionResponseXml : mPOSSDK.XMLParserClient {
+  public func parse(xmlString: Swift.String) -> mPOSSDK.TransactionResponse
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class MPOSService : ObjectiveC.NSObject, mPOSSDK.MPOSServiceCallback {
+  public static var service: mPOSSDK.MPOSService
+  public func setConnectionConfig(config: mPOSSDK.ConnectionConfig)
+  public func getConnectionConfig() -> mPOSSDK.ConnectionConfig
+  public func onComplete(status: mPOSSDK.Status, result: ObjectiveC.NSObject)
+  public func onFailure(status: mPOSSDK.Status)
+  public func startTransaction(_ xmlRequest: Swift.String, onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func checkExistence(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func getTerminalData(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func getRetailerData(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func setMenuStatus(menuStatus: Swift.Bool, onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func setLanguage(language: Swift.String, onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func getLastTransactionResult(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func getLastReconciliationResult(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func getAppSettings(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func getCardSchemes(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func getPublicKeys(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func getAidList(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func getConnectionSettings(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func getDeviceFlags(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func connect(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func disconnect(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func cancelTransaction(onSuccess success: @escaping (mPOSSDK.Status, ObjectiveC.NSObject) -> Swift.Void, onFailure failure: @escaping (mPOSSDK.Status) -> Swift.Void)
+  public func parseAIDListResponse(xml: Swift.String) -> [mPOSSDK.Application]
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class IPAddress : ObjectiveC.NSObject {
+  public var IP: Swift.String
+  public var subnetMask: Swift.String
+  public var APN: Swift.String
+  public var gateWay: Swift.String
+  public var DNS: Swift.String
+  public var port: Swift.String
+  public var NII: Swift.String
+  public var terminalType: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class PublicKey : ObjectiveC.NSObject {
+  public var key: Swift.String
+  public var publicKeyLength: Swift.String
+  public var RID: Swift.String
+  public var keyIndex: Swift.String
+  public var publicKeyExponent: Swift.String
+  public var publicKeyExpiryDate: Swift.String
+  public var publicKeyChecksum: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class Integration : ObjectiveC.NSObject {
+  public var type: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class Application : ObjectiveC.NSObject {
+  public var AID: Swift.String
+  public var AIDVersion: Swift.String
+  public var AIDFullMatch: Swift.String
+  public var denialActionCode: Swift.String
+  public var onlineActionCode: Swift.String
+  public var defaultActionCode: Swift.String
+  public var targetPercent: Swift.String
+  public var maxPercent: Swift.String
+  public var thresholdAmount: Swift.String
+  public var TDOL: Swift.String
+  public var DDOL: Swift.String
+  public var EMVAdditionalTags: Swift.String
+  public var AIDLabel: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class TerminalData : ObjectiveC.NSObject {
+  public var TID: Swift.String
+  public var MID: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class HostTotal : ObjectiveC.NSObject {
+  public var hostNameEng: Swift.String
+  public var hostNameArb: Swift.String
+  public var total: [mPOSSDK.Total]
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum TransactionType : Swift.String {
+  case SALE
+  case REFUND
+  case CASHBACK
+  case ADVICE
+  case CASH_ADV
+  case PREAUTH
+  case VOID
+  case RECONCILIATION
+  case REVERSAL
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension TransactionType {
+  public init(value: Swift.String)
+  public func getName() -> Swift.String
+}
+@objc @_inheritsConvenienceInitializers public class ConnectionSettingsXml : mPOSSDK.XMLParserClient {
+  public func parse(xmlString: Swift.String) -> [mPOSSDK.CommSetting]
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class TransactionPerformance : ObjectiveC.NSObject {
+  public var startDateTime: Swift.String
+  public var endDateTime: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class AppSettingsXml : mPOSSDK.XMLParserClient {
+  public func parse(xmlString: Swift.String) -> mPOSSDK.AppSettings
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class DeviceSpecificFlagsXml : mPOSSDK.XMLParserClient {
+  public func parse(xmlString: Swift.String) -> [mPOSSDK.DeviceSpecificFlags]
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class CardScheme : ObjectiveC.NSObject {
+  public var schemeID: Swift.String
+  public var schemeNameEng: Swift.String
+  public var term: Swift.String
+  public var merch: Swift.String
+  public var MCC: Swift.String
+  public var acquirer: Swift.String
+  public var maxCashback: Swift.String
+  public var maxAmountTrans: Swift.String
+  public var enableEmv: Swift.String
+  public var serviceCode: Swift.String
+  public var offlineRefundFlag: Swift.String
+  public var floorLimit: Swift.String
+  public var fallbackLimit: Swift.String
+  public var luhnCheck: Swift.String
+  public var transAllowed: Swift.String
+  public var cardHolderAuth: Swift.String
+  public var supervisorAuth: Swift.String
+  public var manualEntryAllowed: Swift.String
+  public var maxtransAmountFlag: Swift.String
+  public var prefix: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol StatusDescription {
+  var description: Swift.String { get }
+}
+public enum Status : Swift.Int, mPOSSDK.StatusDescription {
+  case STATUS_SUCCESS
+  case STATUS_RECEIPT_SUCCESS
+  case STATUS_DEVICE_READY
+  case STATUS_BLUETOOTH_CONNECTED
+  case STATUS_BLUETOOTH_DISCONNECTED
+  case STATUS_BLUETOOTH_NOT_ENABLED
+  case STATUS_BLUETOOTH_NOT_SUPPORTED
+  case STATUS_BLUETOOTH_NOT_CONNECTED
+  case STATUS_TRANSACTION_ALREADY_IN_PROGRESS
+  case STATUS_RECEIPT_FAIL
+  case STATUS_TRANSACTION_NOT_SUPPORTED
+  case STATUS_DEVICE_BUSY
+  case STATUS_TRANSACTION_TIMEOUT
+  case STATUS_BLUETOOTH_SEND_FAILED
+  case STATUS_MENU_STATUS_FAILED
+  case STATUS_DEVICE_NOT_CONNECTED
+  case STATUS_DEVICE_CONNECTION_ERROR
+  case STATUS_DEVICE_TIMEOUT
+  case STATUS_SET_LANGUAGE_FAILED
+  case STATUS_OPERATION_IN_PROGRESS
+  case STATUS_GENERAL_FAILURE
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class KeyVersion : ObjectiveC.NSObject {
+  public var host: Swift.String
+  public var ssl: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Data {
+  public func aesCBCEncrypt(_ key: Swift.String, iv: Swift.String? = nil) -> Foundation.Data?
+  public func aesCBCDecrypt(_ key: Swift.String, iv: Swift.String? = nil) -> Foundation.Data?
+  public func aesEBCEncrypt(_ key: Swift.String) -> Foundation.Data?
+  public func aesEBCDecrypt(_ key: Swift.String) -> Foundation.Data
+}
+extension String {
+  public func aesCBCEncrypt(_ key: Swift.String, iv: Swift.String? = nil) -> Foundation.Data?
+  public func aesCBCDecryptFromBase64(_ key: Swift.String, iv: Swift.String? = nil) -> Swift.String?
+  public func aesEBCEncrypt(_ key: Swift.String) -> Foundation.Data?
+  public func aesEBCDecryptFromBase64(_ key: Swift.String) -> Swift.String?
+}
+@objc @_inheritsConvenienceInitializers public class CardSchemeTotal : ObjectiveC.NSObject {
+  public var schemeNameEng: Swift.String
+  public var schemeNameArb: Swift.String
+  public var hostTotals: [mPOSSDK.HostTotal]
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BLEConnection : mPOSSDK.Connection {
+  public var deviceControllerDelegate: mPOSSDK.BLEDeviceControllerDelegate?
+  public static var connectionManager: mPOSSDK.BLEConnection
+  public func connect()
+  public func connect(peripheral: CoreBluetooth.CBPeripheral)
+  public func didConnect()
+  public func didDisconnect()
+  public func didReceiveData(data: Foundation.Data)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BLEDeviceController : ObjectiveC.NSObject, CoreBluetooth.CBCentralManagerDelegate, CoreBluetooth.CBPeripheralDelegate, mPOSSDK.BLEDeviceControllerDelegate {
+  public var deviceDiscoveryDelegate: mPOSSDK.DeviceDiscoveryDelegate!
+  public static var deviceController: mPOSSDK.BLEDeviceController
+  public func connect(peripheral: CoreBluetooth.CBPeripheral)
+  public func refreshAction()
+  public func stopScan()
+  public func startScan()
+  public func cancelScan()
+  public func refreshScanView()
+  public func disconnectFromDevice()
+  public func restoreCentralManager()
+  @objc public func centralManager(_ central: CoreBluetooth.CBCentralManager, didDiscover peripheral: CoreBluetooth.CBPeripheral, advertisementData: [Swift.String : Any], rssi RSSI: Foundation.NSNumber)
+  @objc public func centralManager(_ central: CoreBluetooth.CBCentralManager, didConnect peripheral: CoreBluetooth.CBPeripheral)
+  @objc public func centralManager(_ central: CoreBluetooth.CBCentralManager, didFailToConnect peripheral: CoreBluetooth.CBPeripheral, error: Swift.Error?)
+  @objc public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverServices error: Swift.Error?)
+  @objc public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverCharacteristicsFor service: CoreBluetooth.CBService, error: Swift.Error?)
+  @objc public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didUpdateValueFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+  @objc public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverDescriptorsFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+  @objc public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didUpdateNotificationStateFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+  @objc public func centralManager(_ central: CoreBluetooth.CBCentralManager, didDisconnectPeripheral peripheral: CoreBluetooth.CBPeripheral, error: Swift.Error?)
+  @objc public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didWriteValueFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+  @objc public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didWriteValueFor descriptor: CoreBluetooth.CBDescriptor, error: Swift.Error?)
+  @objc public func centralManagerDidUpdateState(_ central: CoreBluetooth.CBCentralManager)
+  public func disconnect()
+  public func sendRequest(data: Foundation.Data)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class TransactionRequest : ObjectiveC.NSObject {
+  public var transactionType: mPOSSDK.TransactionType
+  public var transactionAmount: Swift.String
+  public var cashbackAmount: Swift.String
+  public var rrn: Swift.String
+  public var maskedPan: Swift.String
+  public var authCode: Swift.String
+  public var printFlag: Swift.String
+  public var phoneNumber: Swift.String
+  public var email: Swift.String
+  public var userId: Swift.String
+  public var deviceId: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class RetailerInfo : ObjectiveC.NSObject {
+  public var retailerNameEng: Swift.String
+  public var retailerNameArb: Swift.String
+  public var addressEng1: Swift.String
+  public var addressEng2: Swift.String
+  public var addressArb1: Swift.String
+  public var addressArb2: Swift.String
+  public var downloadPhone: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class RetailerDataXml : mPOSSDK.XMLParserClient {
+  public func parse(xmlString: Swift.String) -> mPOSSDK.RetailerData
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class Configuration : ObjectiveC.NSObject {
+  public var autoRecon: Swift.String
+  public var instantRecon: Swift.String
+  public var instantAdvice: Swift.String
+  public var GUI: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol BLEDeviceControllerDelegate {
+  func sendRequest(data: Foundation.Data)
+}
+public protocol DeviceDiscoveryDelegate {
+  func didDiscoverDevice(peripheral: CoreBluetooth.CBPeripheral, advertisementData: [Swift.String : Any], rssi RSSI: Foundation.NSNumber)
+  func showMessage(msg: Swift.String)
+  func didConnect()
+  func didDisconnect()
+}
+@objc @_inheritsConvenienceInitializers public class AppSettings : ObjectiveC.NSObject {
+  public var version: Swift.String
+  public var terminalID: Swift.String
+  public var serialNumber: Swift.String
+  public var keyVersion: mPOSSDK.KeyVersion
+  public var integration: mPOSSDK.Integration
+  public var localIP: mPOSSDK.IPAddress
+  public var destinationIP: mPOSSDK.IPAddress
+  public var appConfiguration: mPOSSDK.Configuration
+  public var gpsLocation: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class Connection : ObjectiveC.NSObject {
+  public static var isConnected: Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class Retailer : ObjectiveC.NSObject {
+  public var retailerNameEng: Swift.String
+  public var retailerNumber: Swift.String
+  public var downloadPhone: Swift.String
+  public var terminalSerialNo: Swift.String
+  public var currencyCode: Swift.String
+  public var countryCode: Swift.String
+  public var currencyExponent: Swift.String
+  public var emvEermType: Swift.String
+  public var currencySymbolEng: Swift.String
+  public var currencySymbolArb: Swift.String
+  public var retailerLanguage: Swift.String
+  public var autoLoadFlag: Swift.String
+  public var SAFRetryLimit: Swift.String
+  public var SAFLimit: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class AIDXml : mPOSSDK.XMLParserClient {
+  public func parse(xmlString: Swift.String) -> [mPOSSDK.Application]
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class XMLParserClient : ObjectiveC.NSObject, Foundation.XMLParserDelegate {
+  public func parse(xmlString: Swift.String)
+  @objc public func parser(_ parser: Foundation.XMLParser, didStartElement elementName: Swift.String, namespaceURI: Swift.String?, qualifiedName qName: Swift.String?, attributes attributeDict: [Swift.String : Swift.String])
+  @objc public func parser(_ parser: Foundation.XMLParser, foundCharacters string: Swift.String)
+  @objc public func parser(_ parser: Foundation.XMLParser, didEndElement elementName: Swift.String, namespaceURI: Swift.String?, qualifiedName qName: Swift.String?)
+  @objc public func parser(_ parser: Foundation.XMLParser, parseErrorOccurred parseError: Swift.Error)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class TransactionRequestXml : mPOSSDK.XMLParserClient {
+  public func parse(xmlString: Swift.String) -> mPOSSDK.TransactionRequest
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ReconciliationResponse : ObjectiveC.NSObject {
+  public var retailerInfo: mPOSSDK.RetailerInfo
+  public var startDateTime: Swift.String
+  public var endDateTime: Swift.String
+  public var bankID: Swift.String
+  public var merchantID: Swift.String
+  public var terminalID: Swift.String
+  public var transTypeArb: Swift.String
+  public var transTypeEng: Swift.String
+  public var currencyEng: Swift.String
+  public var currencyArb: Swift.String
+  public var amountlabelEng: Swift.String
+  public var amountlabelArb: Swift.String
+  public var amount: Swift.String
+  public var resultEng: Swift.String
+  public var resultArb: Swift.String
+  public var campaignQR: Swift.String
+  public var campaignText: Swift.String
+  public var cardSchemeTotal: [mPOSSDK.CardSchemeTotal]
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol MPOSServiceCallback {
+  func onComplete(status: mPOSSDK.Status, result: ObjectiveC.NSObject)
+  func onFailure(status: mPOSSDK.Status)
+}
+@objc @_inheritsConvenienceInitializers public class CommSetting : ObjectiveC.NSObject {
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class Total : ObjectiveC.NSObject {
+  public var txnTypeEng: Swift.String
+  public var txnTypeArb: Swift.String
+  public var count: Swift.String
+  public var totalAmount: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ContactlessParam : ObjectiveC.NSObject {
+  public var ID: Swift.String
+  public var tranCtlsLimit: Swift.String
+  public var CVMCtlsReqLimit: Swift.String
+  public var ctlsFloorLimit: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+public var kBLEService_UUID: Swift.String
+public var kBLE_Characteristic_uuid_Rx: Swift.String
+public var kBLE_Characteristic_uuid_Tx: Swift.String
+public var MaxCharacters: Swift.Int
+public var BLEService_UUID: CoreBluetooth.CBUUID
+public var BLE_Characteristic_uuid_Tx: CoreBluetooth.CBUUID
+public var BLE_Characteristic_uuid_Rx: CoreBluetooth.CBUUID
+@objc @_inheritsConvenienceInitializers public class PublicKeyXml : mPOSSDK.XMLParserClient {
+  public func parse(xmlString: Swift.String) -> [mPOSSDK.PublicKey]
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class TransactionResponse : ObjectiveC.NSObject {
+  public var retailerInfo: mPOSSDK.RetailerInfo
+  public var startDateTime: Swift.String
+  public var endDateTime: Swift.String
+  public var bankID: Swift.String
+  public var merchantID: Swift.String
+  public var terminalID: Swift.String
+  public var MCC: Swift.String
+  public var STAN: Swift.String
+  public var Version: Swift.String
+  public var RRN: Swift.String
+  public var cardSchemeID: Swift.String
+  public var cardSchemeEng: Swift.String
+  public var cardSchemeArb: Swift.String
+  public var appLabelEng: Swift.String
+  public var appLabelArb: Swift.String
+  public var PAN: Swift.String
+  public var cardExpDate: Swift.String
+  public var transTypeArb: Swift.String
+  public var transTypeEng: Swift.String
+  public var currencyEng: Swift.String
+  public var currencyArb: Swift.String
+  public var amountlabelEng: Swift.String
+  public var amountlabelArb: Swift.String
+  public var amount: Swift.String
+  public var resultEng: Swift.String
+  public var resultArb: Swift.String
+  public var responseMessageEnglish: Swift.String
+  public var responseMessageArabic: Swift.String
+  public var retailerCopyEnglish: Swift.String
+  public var retailerCopyArabic: Swift.String
+  public var signatureLineTextEnglish: Swift.String
+  public var signatureLineTextArabic: Swift.String
+  public var acknConfirmationTextEnglish: Swift.String
+  public var acknConfirmationTextArabic: Swift.String
+  public var customerCopyEnglish: Swift.String
+  public var customerCopyArabic: Swift.String
+  public var approvalCodeLabelEng: Swift.String
+  public var approvalCodeLabelArb: Swift.String
+  public var approvalCode: Swift.String
+  public var cvmEng: Swift.String
+  public var cvmArb: Swift.String
+  public var emvTags: mPOSSDK.EMVTags
+  public var campaignQR: Swift.String
+  public var campaignText: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class AcquirerData : ObjectiveC.NSObject {
+  public var nextDownloadTime: Swift.String
+  public var nextReconTIme: Swift.String
+  public var terminalCapability: Swift.String
+  public var addtionalCapability: Swift.String
+  public var terminalId: Swift.String
+  public var acceptorId: Swift.String
+  public var acquirerInstId: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class EMVTags : ObjectiveC.NSObject {
+  public var posEntryMode: Swift.String
+  public var responseCode: Swift.String
+  public var terminalStatusCode: Swift.String
+  public var AID: Swift.String
+  public var TVR: Swift.String
+  public var TSI: Swift.String
+  public var CVR: Swift.String
+  public var ACI: Swift.String
+  public var AC: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum ConnectionType : Swift.String {
+  case BLUETOOTH
+  case WIFI
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class ConnectionConfig : ObjectiveC.NSObject {
+  public var connectionType: mPOSSDK.ConnectionType
+  public var ipAddress: Swift.String
+  public var port: Swift.Int
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class DeviceSpecificFlags : ObjectiveC.NSObject {
+  public var contactlessParams: [mPOSSDK.ContactlessParam]
+  public var MAXSAFDepth: Swift.String
+  public var MAXSAFAmount: Swift.String
+  public var idleTime: Swift.String
+  public var MAXReconAmount: Swift.String
+  public var MAXReconCount: Swift.String
+  public var QRPrintIndicator: Swift.String
+  public var GPSLocation: Swift.String
+  public func toString(padding: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class CardSchemeXml : mPOSSDK.XMLParserClient {
+  public func parse(xmlString: Swift.String) -> [mPOSSDK.CardScheme]
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ReconciliationResponseXml : mPOSSDK.XMLParserClient {
+  public func parse(xmlString: Swift.String) -> mPOSSDK.ReconciliationResponse
+  @objc override dynamic public init()
+  @objc deinit
+}
