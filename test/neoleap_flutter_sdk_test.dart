@@ -15,6 +15,56 @@ class MockNeoleapFlutterSdkPlatform
 
   @override
   Future<Map<String, dynamic>> connectMPOS() => Future.value({});
+
+  @override
+  Future<String?> cancelTransaction() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> checkExistence() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String?> connect() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String?> disconnect() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String?> getLastReconciliationResult() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String?> getLastTransactionResult() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Map<String, dynamic>?> getTerminalData() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String?> setLanguage() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String?> setMenuStatus() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String?> startTransaction(String xmlRequest) {
+    throw UnimplementedError();
+  }
 }
 
 void main() {

@@ -31,7 +31,49 @@ abstract class NeoleapFlutterSdkPlatform extends PlatformInterface {
     throw UnimplementedError('getBatteryLevel() has not been implemented.');
   }
 
-  Future<Map<String,dynamic>> connectMPOS() {
+  Future<Map<String, dynamic>?> connectMPOS() {
     throw UnimplementedError('connectMPOS() has not been implemented.');
+  }
+
+  Future<String?> connect() {
+    throw UnimplementedError('connect() has not been implemented.');
+  }
+
+  Future<String?> disconnect() {
+    throw UnimplementedError('disconnect() has not been implemented.');
+  }
+
+  Future<String?> cancelTransaction() {
+    throw UnimplementedError('cancelTransaction() has not been implemented.');
+  }
+
+  Future<String?> startTransaction(String xmlRequest) {
+    throw UnimplementedError('startTransaction() has not been implemented.');
+  }
+
+  Future<String?> getLastTransactionResult() {
+    throw UnimplementedError(
+        'getLastTransactionResult() has not been implemented.');
+  }
+
+  Future<String?> getLastReconciliationResult() {
+    throw UnimplementedError(
+        'getLastReconciliationResult() has not been implemented.');
+  }
+
+  Future<Map<String, dynamic>?> getTerminalData() {
+    throw UnimplementedError('getTerminalData() has not been implemented.');
+  }
+
+  Future<bool?> checkExistence() {
+    throw UnimplementedError('checkExistence() has not been implemented.');
+  }
+
+  Future<String?> setLanguage() {
+    throw UnimplementedError('setLanguage() has not been implemented.');
+  }
+
+  Future<String?> setMenuStatus() {
+    throw UnimplementedError('setMenuStatus() has not been implemented.');
   }
 }
