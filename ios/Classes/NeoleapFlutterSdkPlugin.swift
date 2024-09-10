@@ -28,6 +28,12 @@ public class NeoleapFlutterSdkPlugin: NSObject, FlutterPlugin {
     }
     
     private func connectMPOS(result: @escaping FlutterResult) {
+        MPOSService.service.connect(onSuccess: { (status, mposResult) in
+        print("\nSuccess. Response received...: " + status.description)
+        }) { (status) in
+        print("\nFailure Response received...: " + status.description)
+        }
+        
         MPOSService.service.connect(onSuccess: {(status, mposResult) in
             let response = [
                 "status": "success",
