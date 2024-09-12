@@ -1,6 +1,8 @@
 import Flutter
 import UIKit
+#if !targetEnvironment(simulator)
 import mPOSSDK
+#endif
 
 
 public class NeoleapFlutterSdkPlugin: NSObject, FlutterPlugin {
@@ -20,6 +22,7 @@ public class NeoleapFlutterSdkPlugin: NSObject, FlutterPlugin {
             UIDevice.current.isBatteryMonitoringEnabled = true
             
             result(UIDevice.current.batteryLevel * 100)
+#if !targetEnvironment(simulator)
         case "connect":
             MPOSService.service.connect(onSuccess: { (status, response) in
                 result("Connected successfully")
@@ -95,33 +98,17 @@ public class NeoleapFlutterSdkPlugin: NSObject, FlutterPlugin {
             }) { (status) in
                 result(FlutterError(code: "SET_MENU_STATUS_FAILED", message: "Failed to set menu status", details: nil))
             }
+            
+#else
+        case "connect", "disconnect", "cancelTransaction", "startTransaction",
+            "getLastTransactionResult", "getLastReconciliationResult",
+            "getTerminalData", "checkExistence", "setLanguage", "setMenuStatus":
+            result(FlutterError(code: "UNAVAILABLE", message: "mPOSSDK is not available in the simulator", details: nil))
+#endif
         default:
             result(FlutterMethodNotImplemented)
         }
     }
     
-   
-    private func connectMPOS(result: @escaping FlutterResult) {
-        
-        
-        MPOSService.service.connect(onSuccess: { (status, mposResult) in
-            print("\nSuccess. Response received...: " + status.description)
-        }) { (status) in
-            print("\nFailure Response received...: " + status.description)
-        }
-        
-        //        MPOSService.service.connect(onSuccess: {(status, mposResult) in
-        //            let response = [
-        //                "status": "success",
-        //                "description": status.description
-        //            ]
-        //            result(response)
-        //        }, onFailure: {(status) in
-        //            let response = [
-        //                "status": "failure",
-        //                "description": status.description
-        //            ]
-        //            result(response)
-        //        })
-    }
+    
 }
