@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -32,8 +34,15 @@ class MethodChannelNeoleapFlutterSdk extends NeoleapFlutterSdkPlatform {
 
   @override
   Future<String?> connect() async {
-    final String? result = await methodChannel.invokeMethod('connect');
-    return result;
+    try {
+      log("Flutter: Calling connect method");
+      final String? result = await methodChannel.invokeMethod('connect');
+      log("Flutter: Connect result: $result");
+      return result;
+    } catch (e) {
+      log("Flutter: Error in connect method: $e");
+      rethrow;
+    }
   }
 
   @override
@@ -51,9 +60,16 @@ class MethodChannelNeoleapFlutterSdk extends NeoleapFlutterSdkPlatform {
 
   @override
   Future<String?> startTransaction(String xmlRequest) async {
-    final String? result = await methodChannel
-        .invokeMethod('startTransaction', {'xmlRequest': xmlRequest});
-    return result;
+    try {
+      log("Flutter: Calling startTransaction method");
+      final String? result = await methodChannel
+          .invokeMethod('startTransaction', {'xmlRequest': xmlRequest});
+      log("Flutter: startTransaction result: $result");
+      return result;
+    } catch (e) {
+      log("Flutter: Error in startTransaction method: $e");
+      rethrow;
+    }
   }
 
   @override
