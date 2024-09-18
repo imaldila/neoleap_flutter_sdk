@@ -14,7 +14,7 @@ class MockNeoleapFlutterSdkPlatform
   Future<num?> getBatteryLevel() => Future.value(21);
 
   @override
-  Future<Map<String, dynamic>> connectMPOS() => Future.value({});
+  // Future<Map<String, dynamic>> connectMPOS() => Future.value({});
 
   @override
   Future<String?> cancelTransaction() {
@@ -65,6 +65,11 @@ class MockNeoleapFlutterSdkPlatform
   Future<String?> startTransaction(String xmlRequest) {
     throw UnimplementedError();
   }
+  
+  @override
+  Future<String?> connectToDevice() {
+    throw UnimplementedError();
+  }
 }
 
 void main() {
@@ -93,12 +98,12 @@ void main() {
     expect(await neoleapFlutterSdkPlugin.getBatteryLevel(), 21);
   });
 
-  test('connectMPOS', () async {
-    NeoleapFlutterSdk neoleapFlutterSdkPlugin = NeoleapFlutterSdk();
-    MockNeoleapFlutterSdkPlatform fakePlatform =
-        MockNeoleapFlutterSdkPlatform();
-    NeoleapFlutterSdkPlatform.instance = fakePlatform;
+  // test('connectMPOS', () async {
+  //   NeoleapFlutterSdk neoleapFlutterSdkPlugin = NeoleapFlutterSdk();
+  //   MockNeoleapFlutterSdkPlatform fakePlatform =
+  //       MockNeoleapFlutterSdkPlatform();
+  //   NeoleapFlutterSdkPlatform.instance = fakePlatform;
 
-    expect(await neoleapFlutterSdkPlugin.connectMPOS(), {});
-  });
+  //   expect(await neoleapFlutterSdkPlugin.connectMPOS(), {});
+  // });
 }

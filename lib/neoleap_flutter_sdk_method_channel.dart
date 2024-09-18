@@ -25,11 +25,22 @@ class MethodChannelNeoleapFlutterSdk extends NeoleapFlutterSdkPlatform {
     return batteryLevel;
   }
 
+  // @override
+  // Future<Map<String, dynamic>?> connectMPOS() async {
+  //   final Map<String, dynamic> result =
+  //       await methodChannel.invokeMethod('connectMPOS');
+  //   return result;
+  // }
+
   @override
-  Future<Map<String, dynamic>?> connectMPOS() async {
-    final Map<String, dynamic> result =
-        await methodChannel.invokeMethod('connectMPOS');
-    return result;
+  Future<String?> connectToDevice() async {
+    try {
+      final result = await methodChannel.invokeMethod('connectToDevice');
+      return result;
+    } on PlatformException catch (e) {
+      log("Failed to connect to device: '${e.message}'.");
+      return "Failed to connect to device: '${e.message}'.";
+    }
   }
 
   @override

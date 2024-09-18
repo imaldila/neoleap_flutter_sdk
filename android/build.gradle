@@ -50,6 +50,8 @@ android {
     }
 
     dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.aar'])
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
         testImplementation 'org.jetbrains.kotlin:kotlin-test'
         testImplementation 'org.mockito:mockito-core:5.0.0'
     }
